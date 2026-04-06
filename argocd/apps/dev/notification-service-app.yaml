@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: auth-service-dev
+  name: notification-service-dev
   namespace: argocd
   labels:
     env: dev
-    app: auth-service
+    app: notification-service
     managed-by: terraform
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -15,10 +15,10 @@ spec:
   source:
     repoURL: https://github.com/<YOUR_GITHUB_USERNAME>/pharmops-gitops.git
     targetRevision: HEAD
-    path: pharma-service
+    path: helm-charts
     helm:
       valueFiles:
-        - ../envs/dev/values-auth-service.yaml
+        - ../envs/dev/values-notification-service.yaml
 
   destination:
     server: https://kubernetes.default.svc

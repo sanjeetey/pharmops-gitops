@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: api-gateway-dev
+  name: auth-service-dev
   namespace: argocd
   labels:
     env: dev
-    app: api-gateway
+    app: auth-service
     managed-by: terraform
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -15,10 +15,10 @@ spec:
   source:
     repoURL: https://github.com/<YOUR_GITHUB_USERNAME>/pharmops-gitops.git
     targetRevision: HEAD
-    path: pharma-service
+    path: helm-charts
     helm:
       valueFiles:
-        - ../envs/dev/values-api-gateway.yaml
+        - ../envs/dev/values-auth-service.yaml
 
   destination:
     server: https://kubernetes.default.svc
