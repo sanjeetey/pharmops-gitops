@@ -13,7 +13,7 @@ spec:
   project: pharma
 
   source:
-    repoURL: https://github.com/sanjeetey/pharma-helm-charts.git
+    repoURL: https://github.com/sanjeetey/pharmops-gitops.git
     targetRevision: HEAD
     path: helm-charts
     helm:
